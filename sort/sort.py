@@ -11,7 +11,7 @@ def insertion_sort(a):
         i = j - 1
         while a[i] > key and i >= 0:
             a[i + 1] = a[i]
-            i = i - 1
+            i -= 1
         a[i + 1] = key
 
 
