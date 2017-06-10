@@ -29,9 +29,7 @@ def selection_sort(a):
         for j in range(i + 1, len(a)):
             if a[j] < a[p]:
                 p = j
-        temp = a[p]
-        a[p] = a[i]
-        a[i] = temp
+        a[p], a[i] = a[i], a[p]  # swap a[p], a[i]
     return a
 
 
@@ -66,7 +64,18 @@ def merge(left, right):
     return result
 
 
+def bubble_sort(a):
+    if not a or len(a) <= 1:
+        return a
+    n = len(a)
+    for i in range(n):
+        for j in range(0, n - i - 1):
+            if a[j] > a[j + 1]:
+                a[j], a[j + 1] = a[j + 1], a[j]
+    return a
+
+
 if __name__ == '__main__':
     arr = [5, 2, 4, 6, 1, 3]
 
-    print(merge_sort(arr))
+    print(selection_sort(arr))
