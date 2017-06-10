@@ -75,6 +75,10 @@ def bubble_sort(a):
     return a
 
 
+def quick_sort(a):
+    pass
+
+
 if __name__ == '__main__':
     arr = [5, 2, 4, 6, 1, 3]
 
