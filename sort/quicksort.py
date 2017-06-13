@@ -8,7 +8,7 @@ def quick_sort(a, p, r):
 def partition(a, p, r):
     x = a[r]  # pivot element
     i = p - 1
-    for j in range(p, r):  # note: j from p to r -1 not contains r
+    for j in range(p, r):  # note: j from p to r - 1  and not contains r
         if a[j] <= x:
             i += 1
             a[i], a[j] = a[j], a[i]  # exchange a[i] with a[j]
