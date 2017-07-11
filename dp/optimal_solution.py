@@ -40,16 +40,22 @@ def memoized_cut_rod_aux(p, n, r):
     return q
 
 
-# def bottom_up_cut_rod(p, n):
-#     r = [math.inf * -1] * n
-#     r[0] = 0
-#     for j in range(0, n):
-#         q = math.inf * -1
-#         for i in range(0, j + 1):
-#             q = max(q, p[i] + r[j - i])
-#         r[j] = q
-#
-#     return r[n - 1]
+def bottom_up_cut_rod(p, n):
+    """
+    动态规划：自底向上法求解钢条切割问题
+    :param p: 收益数组
+    :param n: 钢条长度
+    :return:  最大收益
+    """
+    r = [math.inf * -1] * (n + 1)
+    r[0] = 0
+    for j in range(1, n + 1):
+        q = math.inf * -1
+        for i in range(1, j + 1):
+            q = max(q, p[i - 1] + r[j - i])
+        r[j] = q
+
+    return r[n]
 
 
 if __name__ == "__main__":
@@ -60,5 +66,5 @@ if __name__ == "__main__":
     res = memoized_cut_rod(arr, 4)
     print(res)
 
-    # res = bottom_up_cut_rod(arr, 4)
-    # print(res)
+    res = bottom_up_cut_rod(arr, 4)
+    print(res)
